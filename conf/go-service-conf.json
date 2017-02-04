@@ -1,0 +1,18 @@
+{
+    "go-service-config": {
+        "v1": {
+            "dev": {
+                "ListeningPort": "8081",
+                "ServerCert": "/opt/ssl/dev-server.crt",
+                "ServerKey": "/opt/ssl/dev-server.key",
+                "NO_TLS": "true"
+            },
+            "integration": {
+            },
+            "staging": {
+            },
+            "live": {
+            }
+        }
+    }
+}

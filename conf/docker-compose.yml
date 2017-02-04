@@ -1,0 +1,17 @@
+#
+# docker-compose.yml for python server
+#
+version: '2'
+services:
+  server:
+    image: "mwn-go-server:dev-latest"
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./log:/opt/app/log
+    environment:
+      - CONFIG_FILENAME=conf/go-service-conf.json
+      - STAGE=dev
+
+
+        

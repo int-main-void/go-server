@@ -1,0 +1,7 @@
+*~
+vendor
+image
+bin/
+pkg/
+src/github.com
+src/golang.org/
