@@ -9,6 +9,9 @@ import (
 	"os"
 )
 
+const stageKey="STAGE"
+const configFilenameKey="CONFIG_FILENAME"
+
 func readConfig(configFileName string, configName string, version string, stage string) (map[string]string, error) {
 
 	config := map[string]string{}
@@ -32,13 +35,13 @@ func readConfig(configFileName string, configName string, version string, stage 
 SetupConfig reads a json config file into a key/value map.
 */
 func SetupConfig(configName string, runtimeVersion string) (map[string]string, error) {
-	runtimeStage := os.Getenv("STAGE")
+	runtimeStage := os.Getenv(stageKey)
 	if(runtimeStage != "dev" && runtimeStage != "integration" && runtimeStage != "staging" && runtimeStage != "live") {
 		log.Println("invalid runtime stage: ", runtimeStage)
 		os.Exit(1)
 	}
 
-	configFileName := os.Getenv("CONFIG_FILENAME")
+	configFileName := os.Getenv(configFilenameKey)
 	config, err := readConfig(configFileName, configName, runtimeVersion, runtimeStage)
 	if(err != nil) {
 		log.Println(err)
